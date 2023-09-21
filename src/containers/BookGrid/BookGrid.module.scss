@@ -1,4 +1,5 @@
 @use "../../assets/stylesheets/partials/breakpoints";
+@use "../../assets/stylesheets/partials/pallete";
 
 .grid {
   display: grid;
@@ -16,4 +17,10 @@
   @include breakpoints.phone {
     grid-template-columns: 1fr;
   }
+}
+
+.error {
+  color: pallete.$danger-colour;
+  font-size: 1.2rem;
+  text-align: center;
 }

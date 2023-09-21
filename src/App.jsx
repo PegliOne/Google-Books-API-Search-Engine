@@ -6,22 +6,32 @@ import BookGrid from "./containers/BookGrid/BookGrid";
 
 function App() {
   const [books, setBooks] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const query = formData.get("query");
-    getBooks(query).then((books) => {
-      console.log(books);
-      setBooks(books);
-    });
+    getBooks(query)
+      .then((books) => {
+        if (books) {
+          setBooks(books);
+          setError(null);
+        } else {
+          setError(`No books found for query "${query}"`);
+          setBooks(null);
+        }
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   return (
     <>
       <Header />
       <SearchBar handleSubmit={handleSubmit} />
-      {books && <BookGrid books={books} />}
+      <BookGrid books={books} error={error} />
     </>
   );
 }
