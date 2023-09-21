@@ -1,3 +1,4 @@
+@use "../../assets/stylesheets/partials/breakpoints";
 @use "../../assets/stylesheets/partials/pallete";
 
 .grid__book {
@@ -25,16 +26,33 @@
     .book__header {
       .book__title {
         margin-bottom: 8px;
+
+        @include breakpoints.tablet {
+          font-size: 1.6rem;
+        }
       }
 
       .book__author {
         margin-top: 12px;
         font-weight: 600;
+
+        @include breakpoints.tablet {
+          font-size: 1.2rem;
+        }
       }
     }
 
     .book__description {
+      display: -webkit-box;
       margin-top: 28px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+
+      @include breakpoints.tablet {
+        font-size: 1.2rem;
+      }
     }
   }
 }

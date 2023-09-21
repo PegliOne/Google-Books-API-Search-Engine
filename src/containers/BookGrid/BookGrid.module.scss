@@ -1,5 +1,19 @@
+@use "../../assets/stylesheets/partials/breakpoints";
+
 .grid {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
+
+  @include breakpoints.small-desktop {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include breakpoints.tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include breakpoints.phone {
+    grid-template-columns: 1fr;
+  }
 }
