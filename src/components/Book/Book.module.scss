@@ -1,9 +1,19 @@
+@use "../../assets/stylesheets/partials/pallete";
+
 .grid__book {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  background-color: pallete.$secondary-background-colour;
+  border: 2px solid pallete.$primary-text-colour;
+  border-radius: 20px;
+  overflow: hidden;
   text-align: center;
+
+  &:hover {
+    box-shadow: 0 0 12px pallete.$primary-text-colour;
+    cursor: pointer;
+  }
 
   .book__cover {
     width: 100%;
@@ -18,7 +28,8 @@
       }
 
       .book__author {
-        margin-top: 8px;
+        margin-top: 12px;
+        font-weight: 600;
       }
     }
 

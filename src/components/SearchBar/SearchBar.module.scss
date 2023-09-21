@@ -1,3 +1,5 @@
+@use "../../assets/stylesheets/partials/pallete";
+
 .searchbar {
   display: flex;
   justify-content: center;
@@ -10,11 +12,33 @@
   }
 
   .searchbar__input {
-    margin-right: 8px;
+    box-sizing: border-box;
+    margin-right: 12px;
+    padding: 6px 4px;
+    color: pallete.$primary-text-colour;
+    border: 1px solid pallete.$primary-text-colour;
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 1.2rem;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 6px pallete.$primary-text-colour;
+    }
   }
 
   .searchbar__button {
+    padding: 7px 12px;
+    color: pallete.$secondary-background-colour;
+    background-color: pallete.$primary-text-colour;
+    border: none;
+    border-radius: 6px;
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 1.2rem;
+    transition: background-color 200ms;
+
+    &:hover {
+      background-color: pallete.$hover-colour;
+      cursor: pointer;
+    }
   }
 }

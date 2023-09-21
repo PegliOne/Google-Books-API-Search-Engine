@@ -4,9 +4,14 @@ const SearchBar = () => {
   return (
     <form className={styles.searchbar}>
       <label className={styles.searchbar__label} htmlFor="searchInput">
-        Enter Search Term:
+        Search Term:
       </label>
-      <input className={styles.searchbar__input} id="searchInput" type="text" />
+      <input
+        className={styles.searchbar__input}
+        id="searchInput"
+        type="text"
+        placeholder="Enter search term..."
+      />
       <button className={styles.searchbar__button} type="submit">
         Search
       </button>
