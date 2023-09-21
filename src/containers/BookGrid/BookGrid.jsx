@@ -1,16 +1,17 @@
 import styles from "./BookGrid.module.scss";
 import Book from "../../components/Book/Book";
-import books from "../../data/books.json";
 
-const BookGrid = () => {
+// TODO: Improve Author listing logic to use "and" for the last author
+
+const BookGrid = ({ books }) => {
   return (
     <main className={styles.grid}>
       {books.map((book) => (
         <Book
-          title={book.title}
-          author={book.author}
-          description={book.description}
-          coverUrl={book.coverUrl}
+          title={book.volumeInfo.title}
+          author={book.volumeInfo.authors.join(", ")}
+          description={book.volumeInfo.description}
+          coverUrl={book.volumeInfo.imageLinks.thumbnail}
         />
       ))}
     </main>
