@@ -24,6 +24,8 @@
 
   .searchbar__input {
     box-sizing: border-box;
+    width: 100%;
+    max-width: 540px;
     margin-right: 12px;
     padding: 6px 4px;
     color: pallete.$primary-text-colour;
