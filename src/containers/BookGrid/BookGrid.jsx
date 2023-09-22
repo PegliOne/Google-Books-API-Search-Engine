@@ -1,8 +1,6 @@
 import styles from "./BookGrid.module.scss";
+import { formatAuthorNames, setCoverImageUrl } from "../../js/utils";
 import Book from "../../components/Book/Book";
-
-// TODO: Improve Author listing logic to use "and" for the last author
-// TODO: Improve logic for handling missing cover images
 
 const BookGrid = ({ books, error }) => {
   return (
@@ -13,9 +11,9 @@ const BookGrid = ({ books, error }) => {
             <Book
               key={book.id}
               title={book.volumeInfo.title}
-              authors={book.volumeInfo.authors?.join(", ")}
+              authors={formatAuthorNames(book.volumeInfo.authors)}
               description={book.volumeInfo.description}
-              coverUrl={book.volumeInfo.imageLinks?.thumbnail}
+              coverUrl={setCoverImageUrl(book.volumeInfo.imageLinks?.thumbnail)}
             />
           ))}
       </section>

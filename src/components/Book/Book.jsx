@@ -1,11 +1,6 @@
 import styles from "./Book.module.scss";
 
-const Book = ({
-  title,
-  authors = ["Unknown Author(s)"],
-  description,
-  coverUrl,
-}) => {
+const Book = ({ title, authors, description, coverUrl }) => {
   return (
     <article className={styles.grid__book}>
       <section className={styles.book__cover}>
@@ -20,6 +15,11 @@ const Book = ({
           <h2 className={styles.book__title}>{title}</h2>
           <p className={styles.book__authors}>By {authors}</p>
         </div>
+        <div></div>
+        <>
+          <span></span>
+          <span></span>
+        </>
         <div className={styles.book__main}>
           {description && (
             <p className={styles.book__description}>{description}</p>
