@@ -9,19 +9,28 @@ function App() {
   const [books, setBooks] = useState(null);
   const [error, setError] = useState(null);
 
+  const resetData = () => {
+    setError(null);
+    setBooks(null);
+  };
+
+  const getQuery = (e) => {
+    const formData = new FormData(e.target);
+    return formData.get("query");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const query = formData.get("query");
+    resetData();
+    const query = getQuery(e);
+
+    // Getting Books
     getBooks(query)
       .then((books) => {
         if (books) {
-          console.log(books[0]);
           setBooks(books);
-          setError(null);
         } else {
           setError(`No books found for query "${query}"`);
-          setBooks(null);
         }
       })
       .catch((error) => {
