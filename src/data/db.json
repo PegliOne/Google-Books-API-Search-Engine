@@ -2,7 +2,7 @@
   "books": {
     "items": [
       {
-        "id": 1,
+        "id": "1",
         "volumeInfo": {
           "title": "Book One",
           "authors": ["Single Author"],
@@ -19,7 +19,7 @@
         }
       },
       {
-        "id": 2,
+        "id": "2",
         "volumeInfo": {
           "title": "A mature book with two authors and a long title",
           "authors": ["Author One", "Author Two"],
@@ -36,7 +36,7 @@
         }
       },
       {
-        "id": 3,
+        "id": "3",
         "volumeInfo": {
           "title": "Book with Three Authors",
           "authors": ["Author One", "Author Two", "Author Three"],
@@ -53,7 +53,7 @@
         }
       },
       {
-        "id": 4,
+        "id": "4",
         "volumeInfo": {
           "title": "Book without Image Link",
           "authors": ["Author One", "Author Two", "Author Three"],
@@ -67,7 +67,7 @@
         }
       },
       {
-        "id": 5,
+        "id": "5",
         "volumeInfo": {
           "title": "Book without Description",
           "authors": ["Author One", "Author Two", "Author Three"],
@@ -84,7 +84,7 @@
         }
       },
       {
-        "id": 6,
+        "id": "6",
         "volumeInfo": {
           "title": "Book without Missing Authors",
           "authors": [],

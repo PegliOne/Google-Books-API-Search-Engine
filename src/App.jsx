@@ -8,10 +8,12 @@ import Modal from "./components/Modal/Modal";
 function App() {
   const [books, setBooks] = useState(null);
   const [error, setError] = useState(null);
+  const [modalBook, setModalBook] = useState(null);
 
   const resetData = () => {
     setError(null);
     setBooks(null);
+    setModalBook(null);
   };
 
   const getQuery = (e) => {
@@ -38,18 +40,30 @@ function App() {
       });
   };
 
+  const handleBookClick = (e) => {
+    const modalBookId = e.currentTarget.id;
+    const modalBook = books.find((book) => book.id === modalBookId);
+    setModalBook(modalBook);
+  };
+
+  const closeModal = () => {
+    console.log("Hello there");
+    setModalBook(null);
+  };
+
   return (
     <>
       <Header />
       <SearchBar handleSubmit={handleSubmit} />
-      <BookGrid books={books} error={error} />
-      {books && (
+      <BookGrid books={books} error={error} handleBookClick={handleBookClick} />
+      {modalBook && (
         <Modal
-          title={books[0].volumeInfo.title}
-          publishedDate={books[0].volumeInfo.publishedDate}
-          country={books[0].accessInfo.country}
-          language={books[0].volumeInfo.language.toUpperCase()}
-          maturity={books[0].volumeInfo.maturityRating}
+          title={modalBook.volumeInfo.title}
+          publishedDate={modalBook.volumeInfo.publishedDate}
+          country={modalBook.accessInfo.country}
+          language={modalBook.volumeInfo.language.toUpperCase()}
+          maturity={modalBook.volumeInfo.maturityRating}
+          closeModal={closeModal}
         />
       )}
     </>

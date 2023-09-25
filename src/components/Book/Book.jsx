@@ -1,8 +1,15 @@
 import styles from "./Book.module.scss";
 
-const Book = ({ title, authors, description, coverUrl }) => {
+const Book = ({
+  id,
+  title,
+  authors,
+  description,
+  coverUrl,
+  handleBookClick,
+}) => {
   return (
-    <article className={styles.grid__book}>
+    <article className={styles.grid__book} id={id} onClick={handleBookClick}>
       <section className={styles.book__cover}>
         <img
           className={styles.book__image}

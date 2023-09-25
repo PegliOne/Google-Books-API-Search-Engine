@@ -1,6 +1,13 @@
 import styles from "./Modal.module.scss";
 
-const Modal = ({ title, publishedDate, country, language, maturity }) => {
+const Modal = ({
+  title,
+  publishedDate,
+  country,
+  language,
+  maturity,
+  closeModal,
+}) => {
   return (
     <article className={styles.modal}>
       <h2>{title}</h2>
@@ -18,7 +25,7 @@ const Modal = ({ title, publishedDate, country, language, maturity }) => {
           ? "Appropriate for all audiences"
           : "Warning: May be inappropriate for younger audiences"}
       </p>
-      <button>Close</button>
+      <button onClick={closeModal}>Close</button>
     </article>
   );
 };
