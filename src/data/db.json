@@ -10,7 +10,7 @@
           "imageLinks": {
             "thumbnail": "book.jpeg"
           },
-          "publishedDate": "10/2018",
+          "publishedDate": "2021-03-17",
           "language": "en",
           "maturityRating": "NOT_MATURE"
         },
@@ -27,7 +27,7 @@
           "imageLinks": {
             "thumbnail": "book.jpeg"
           },
-          "publishedDate": "10/2018",
+          "publishedDate": "2021-03-17",
           "language": "en",
           "maturityRating": "MATURE"
         },
@@ -44,7 +44,7 @@
           "imageLinks": {
             "thumbnail": "book.jpeg"
           },
-          "publishedDate": "10/2018",
+          "publishedDate": "2021-03-17",
           "language": "en",
           "maturityRating": "NOT_MATURE"
         },
@@ -58,7 +58,7 @@
           "title": "Book without Image Link",
           "authors": ["Author One", "Author Two", "Author Three"],
           "description": "A short description",
-          "publishedDate": "10/2018",
+          "publishedDate": "2021-03-17",
           "language": "en",
           "maturityRating": "NOT_MATURE"
         },
@@ -75,7 +75,7 @@
           "imageLinks": {
             "thumbnail": "book.jpeg"
           },
-          "publishedDate": "10/2018",
+          "publishedDate": "2021-03-17",
           "language": "en",
           "maturityRating": "NOT_MATURE"
         },
@@ -92,13 +92,25 @@
           "imageLinks": {
             "thumbnail": "book.jpeg"
           },
-          "publishedDate": "10/2018",
+          "publishedDate": "2021-03-17",
           "language": "en",
           "maturityRating": "NOT_MATURE"
         },
         "accessInfo": {
           "country": "AU"
         }
+      },
+      {
+        "id": "7",
+        "volumeInfo": {
+          "title": "Book without Extra Data Missing",
+          "authors": ["Author One"],
+          "description": "A short description",
+          "imageLinks": {
+            "thumbnail": "book.jpeg"
+          }
+        },
+        "accessInfo": {}
       }
     ]
   }

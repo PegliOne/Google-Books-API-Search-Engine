@@ -24,7 +24,14 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     resetData();
+
+    // Getting the query
     const query = getQuery(e);
+
+    if (!query) {
+      setError(`Warning: Cannot Search without Entering a Query`);
+      return;
+    }
 
     // Getting Books
     getBooks(query)
@@ -47,8 +54,12 @@ function App() {
   };
 
   const closeModal = () => {
-    console.log("Hello there");
     setModalBook(null);
+  };
+
+  const getDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
   };
 
   return (
@@ -59,10 +70,10 @@ function App() {
       {modalBook && (
         <Modal
           title={modalBook.volumeInfo.title}
-          publishedDate={modalBook.volumeInfo.publishedDate}
+          publishedDate={getDate(modalBook.volumeInfo.publishedDate)}
           country={modalBook.accessInfo.country}
-          language={modalBook.volumeInfo.language.toUpperCase()}
-          maturity={modalBook.volumeInfo.maturityRating}
+          language={modalBook.volumeInfo.language?.toUpperCase()}
+          isMature={modalBook.volumeInfo.maturityRating === "MATURE"}
           closeModal={closeModal}
         />
       )}
