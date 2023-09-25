@@ -11,21 +11,23 @@ const Modal = ({
   return (
     <article className={styles.modal}>
       <h2>{title}</h2>
-      <p>
+      <p className={styles.modal__para}>
         <strong>Publication Country:</strong> {country}
       </p>
-      <p>
+      <p className={styles.modal__para}>
         <strong>Publication Date:</strong> {publishedDate}
       </p>
-      <p>
+      <p className={styles.modal__para}>
         <strong>Language:</strong> {language}
       </p>
-      <p>
+      <p className={styles.modal__para}>
         {maturity === "NOT_MATURE"
           ? "Appropriate for all audiences"
           : "Warning: May be inappropriate for younger audiences"}
       </p>
-      <button onClick={closeModal}>Close</button>
+      <button className={styles.modal__button} onClick={closeModal}>
+        Close
+      </button>
     </article>
   );
 };

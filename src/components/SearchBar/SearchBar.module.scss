@@ -1,4 +1,5 @@
 @use "../../assets/stylesheets/partials/breakpoints";
+@use "../../assets/stylesheets/partials/mixins";
 @use "../../assets/stylesheets/partials/pallete";
 
 .searchbar {
@@ -40,18 +41,6 @@
   }
 
   .searchbar__button {
-    padding: 7px 12px;
-    color: pallete.$secondary-background-colour;
-    background-color: pallete.$primary-text-colour;
-    border: none;
-    border-radius: 6px;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 1.2rem;
-    transition: background-color 200ms;
-
-    &:hover {
-      background-color: pallete.$hover-colour;
-      cursor: pointer;
-    }
+    @include mixins.button-styles;
   }
 }
