@@ -3,9 +3,7 @@
 @use "../../assets/stylesheets/partials/pallete";
 
 .searchbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.centre-content-styles;
   margin: 48px 0;
   font-size: 1.4rem;
 

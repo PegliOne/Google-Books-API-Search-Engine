@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getBooks } from "./services/getBooks";
+import { getBooks } from "./services/get-books";
 import Header from "./components/Header/Header";
 import SearchBar from "./components/SearchBar/SearchBar";
 import BookGrid from "./containers/BookGrid/BookGrid";
@@ -25,7 +25,7 @@ function App() {
     e.preventDefault();
     resetData();
 
-    // Getting the query
+    // Getting the Query
     const query = getQuery(e);
 
     if (!query) {
@@ -33,7 +33,7 @@ function App() {
       return;
     }
 
-    // Getting Books
+    // Getting the Books
     getBooks(query)
       .then((books) => {
         if (books) {

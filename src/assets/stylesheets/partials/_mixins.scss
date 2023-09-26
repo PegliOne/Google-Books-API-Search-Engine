@@ -1,4 +1,17 @@
+@use "./breakpoints";
 @use "./pallete";
+
+@mixin column-styles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin centre-content-styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @mixin button-styles {
   padding: 7px 12px;
@@ -14,5 +27,11 @@
   &:hover {
     background-color: pallete.$hover-colour;
     cursor: pointer;
+  }
+}
+
+@mixin mobile-font-size($size: 1.2rem) {
+  @include breakpoints.phone {
+    font-size: $size;
   }
 }

@@ -1,10 +1,9 @@
 @use "../../assets/stylesheets/partials/breakpoints";
+@use "../../assets/stylesheets/partials/mixins";
 @use "../../assets/stylesheets/partials/pallete";
 
 .grid__book {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include mixins.column-styles;
   background-color: pallete.$secondary-background-colour;
   border: 2px solid pallete.$primary-text-colour;
   border-radius: 20px;
@@ -17,9 +16,7 @@
   }
 
   .book__cover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include mixins.centre-content-styles;
     width: 100%;
     background-color: pallete.$primary-text-colour;
 
@@ -40,19 +37,13 @@
     .book__header {
       .book__title {
         margin-bottom: 8px;
-
-        @include breakpoints.tablet {
-          font-size: 1.6rem;
-        }
+        @include mixins.mobile-font-size(1.6rem);
       }
 
       .book__authors {
         margin-top: 12px;
         font-weight: 600;
-
-        @include breakpoints.tablet {
-          font-size: 1.2rem;
-        }
+        @include mixins.mobile-font-size;
       }
     }
 
@@ -72,10 +63,7 @@
         text-overflow: ellipsis;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 5;
-
-        @include breakpoints.tablet {
-          font-size: 1.2rem;
-        }
+        @include mixins.mobile-font-size;
       }
     }
   }

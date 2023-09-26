@@ -24,7 +24,7 @@ Click on a book card to view a modal with more information about the book. This 
 
 I've been getting 429 errors from the Google Books API, so I created a mock data file (`src/data/db.json`), so the app can be tested in the case the API fails to return a result.
 
-To start a mock API run `npx json-server --watch data/db.json --port 8000` from inside the `src` folder. To access the mock API in the app go the `src/services/getBooks.js`, then comment out `${GOOGLE_API_URL}q=${query}&maxResults=${RESULT_LIMIT}` and uncomment `MOCK_API_URL`.
+To start a mock API run `npx json-server --watch src/data/db.json --port 8000` from inside the project folder. To access the mock API in the app go the `src/services/get-books.js`, then comment out `${GOOGLE_API_URL}q=${query}&maxResults=${RESULT_LIMIT}` and uncomment `MOCK_API_URL`.
 
 The mock book data should load when a search is performed regardless of the search term entered (as long as the query isn't blank). Edit the mock data to see how the app handles tricky book data (e.g. missing information, long titles or a lack of results).
 
