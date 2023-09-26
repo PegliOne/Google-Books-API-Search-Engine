@@ -8,6 +8,12 @@ const Modal = ({
   isMature,
   closeModal,
 }) => {
+  let maturityParaClasses = styles.modal__para;
+
+  if (isMature) {
+    maturityParaClasses += ` ${styles.modal__para_warning}`;
+  }
+
   return (
     <article className={styles.modal}>
       <h2 className={styles.modal__heading}>{title}</h2>
@@ -26,7 +32,7 @@ const Modal = ({
           <strong>Language:</strong> {language}
         </p>
       )}
-      <p className={isMature ? styles.modal__warning : styles.modal__para}>
+      <p className={maturityParaClasses}>
         {isMature
           ? "Warning: Contains Mature Content"
           : "No Mature Content Reported"}

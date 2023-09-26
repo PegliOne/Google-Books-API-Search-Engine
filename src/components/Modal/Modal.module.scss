@@ -31,11 +31,11 @@
   .modal__para {
     margin: 12px 0;
     @include mixins.mobile-font-size;
-  }
 
-  .modal__warning {
-    color: pallete.$danger-colour;
-    @include mixins.mobile-font-size;
+    &_warning {
+      color: pallete.$danger-colour;
+      @include mixins.mobile-font-size;
+    }
   }
 
   .modal__button {
