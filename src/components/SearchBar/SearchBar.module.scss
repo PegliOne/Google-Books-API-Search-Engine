@@ -1,0 +1,44 @@
+@use "../../assets/stylesheets/partials/breakpoints";
+@use "../../assets/stylesheets/partials/mixins";
+@use "../../assets/stylesheets/partials/pallete";
+
+.searchbar {
+  @include mixins.centre-content-styles;
+  margin: 48px 0;
+  font-size: 1.4rem;
+
+  @include breakpoints.phone {
+    margin: 32px 0;
+  }
+
+  .searchbar__label {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+
+    .searchbar__icon {
+      width: 36px;
+    }
+  }
+
+  .searchbar__input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 540px;
+    margin-right: 12px;
+    padding: 6px;
+    color: pallete.$primary-text-colour;
+    border: 1px solid pallete.$primary-text-colour;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.2rem;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 6px pallete.$primary-text-colour;
+    }
+  }
+
+  .searchbar__button {
+    @include mixins.button-styles;
+  }
+}

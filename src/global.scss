@@ -1,0 +1,10 @@
+@use "./assets/stylesheets/partials/pallete";
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 32px;
+  color: pallete.$primary-text-colour;
+  background-color: pallete.$primary-background-colour;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

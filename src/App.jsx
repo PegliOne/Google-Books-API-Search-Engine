@@ -1,35 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { getBooks } from "./services/get-books";
+import Header from "./components/Header/Header";
+import SearchBar from "./components/SearchBar/SearchBar";
+import BookGrid from "./containers/BookGrid/BookGrid";
+import Modal from "./components/Modal/Modal";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState(null);
+  const [error, setError] = useState(null);
+  const [modalBook, setModalBook] = useState(null);
+
+  const resetData = () => {
+    setError(null);
+    setBooks(null);
+    setModalBook(null);
+  };
+
+  const getQuery = (e) => {
+    const formData = new FormData(e.target);
+    return formData.get("query");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    resetData();
+
+    // Getting the Query
+    const query = getQuery(e);
+
+    if (!query) {
+      setError(`Warning: Cannot Search without Entering a Query`);
+      return;
+    }
+
+    // Getting the Books
+    getBooks(query)
+      .then((books) => {
+        if (books) {
+          setBooks(books);
+        } else {
+          setError(`No books found for query "${query}"`);
+        }
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  const handleBookClick = (e) => {
+    const modalBookId = e.currentTarget.id;
+    const modalBook = books.find((book) => book.id === modalBookId);
+    setModalBook(modalBook);
+  };
+
+  const closeModal = () => {
+    setModalBook(null);
+  };
+
+  const getDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <SearchBar handleSubmit={handleSubmit} />
+      <BookGrid books={books} error={error} handleBookClick={handleBookClick} />
+      {modalBook && (
+        <Modal
+          title={modalBook.volumeInfo.title}
+          publishedDate={getDate(modalBook.volumeInfo.publishedDate)}
+          country={modalBook.accessInfo.country}
+          language={modalBook.volumeInfo.language?.toUpperCase()}
+          isMature={modalBook.volumeInfo.maturityRating === "MATURE"}
+          closeModal={closeModal}
+        />
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
