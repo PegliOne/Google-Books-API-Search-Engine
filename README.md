@@ -2,6 +2,8 @@
 
 A React web app that displays information about books using the Google Books API.
 
+Hosted Site: https://clever-flan-279eab.netlify.app/
+
 ## How To Use
 
 To install and run the app enter `npm install`, then `npm run dev` in the command line and navigate to the provided localhost port in the browser
