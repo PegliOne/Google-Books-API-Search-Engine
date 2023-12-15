@@ -1,8 +1,10 @@
 # Google Books API Search Engine
 
-A React web app that displays information about books using the Google Books API.
-
 Hosted Site: https://clever-flan-279eab.netlify.app/
+
+## Summary
+
+A search engine for the Google Books API built using SCSS and React.js. Features include modals to display additional book details.
 
 ## How To Use
 
